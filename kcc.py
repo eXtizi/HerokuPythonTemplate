@@ -4,7 +4,8 @@ import time
 import json
 import os
 url = "https://us-central1-kandy-city-centre.cloudfunctions.net/temporaryBookSeats"
-
+seatId =os.getenv('SEATID')
+sId=os.getenv('SHID')
 headers = CaseInsensitiveDict()
 headers["Accept"] = "*/*"
 headers["Accept-Encoding"] = "gzip, deflate, br"
