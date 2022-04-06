@@ -22,7 +22,7 @@ headers["Sec-Fetch-Site"] = "cross-site"
 headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36"
 headers["sec-ch-ua-mobile"] = "?0"
 
-data1 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1000"}}'
+data1 = '{"data":{"seatIds":'+seatId+',"scheduleId":"'+sId+'"}}'
 data2 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1030"}}'
 while 1:
     #print('type')
