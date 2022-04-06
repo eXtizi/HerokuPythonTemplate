@@ -23,7 +23,7 @@ headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 headers["sec-ch-ua-mobile"] = "?0"
 
 data1 = '{"data":{"seatIds":'+seatId+',"scheduleId":"'+sId+'"}}'
-data2 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1030"}}'
+data2 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-150422-1030"}}'
 while 1:
     #print('type')
     resp = requests.post(url, headers=headers, data=data1)
@@ -35,7 +35,7 @@ while 1:
             print(data['result']['type'])
             time.sleep(600)
         else:
-            print(data['result']['type'])
+            print(data)
             time.sleep(5)
     except Exception as e:
         print(e)
