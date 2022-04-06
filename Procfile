@@ -1,1 +1,1 @@
-worker: python kcc.py
+worker: python3 kcc.py
