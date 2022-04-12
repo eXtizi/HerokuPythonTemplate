@@ -50,7 +50,7 @@ def block(_id,seatIds):
     Hall=input("enter hall no: ")
     date=input("enter date 030322: ")
     Time=input("enter time 1030: ")
-    data = '{"data":{"seatIds":[41],"scheduleId":"c1-030322-1030"}}''''
+    data = '{"data":{"seatIds":[41],"scheduleId":"c1-030322-1030"}}' .'''
 def getd(_name,_OName):
 
 
