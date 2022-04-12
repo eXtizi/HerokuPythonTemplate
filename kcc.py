@@ -4,7 +4,7 @@ import time
 import json
 def block(_id,seatIds):
     url = "https://us-central1-kandy-city-centre.cloudfunctions.net/temporaryBookSeats"
-
+    _id="c1-170422-2200"
     headers = CaseInsensitiveDict()
     headers["Accept"] = "*/*"
     headers["Accept-Encoding"] = "gzip, deflate, br"
@@ -91,4 +91,5 @@ seatIds ="68,67,69,81,82,83,84,85,96,97,98,99,100,111,112,113,114,115".split(','
 sName="Fantastic Beasts: The Secrets of Dumbledore"#os.getenv('SNAME')
 dName='fantastic-beasts-the-secrets-of-dumbledore'#os.getenv('DNAME')
 _id=getd(dName,sName)
+print(_id)
 block(_id,seatIds)
