@@ -2,6 +2,7 @@ import requests
 from requests.structures import CaseInsensitiveDict
 import time
 import json
+import os
 def block(_id,seatIds):
     url = "https://us-central1-kandy-city-centre.cloudfunctions.net/temporaryBookSeats"
     _id="c1-170422-2200"
