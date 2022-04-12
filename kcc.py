@@ -5,7 +5,7 @@ import json
 import os
 def block(_id,seatIds):
     url = "https://us-central1-kandy-city-centre.cloudfunctions.net/temporaryBookSeats"
-    _id="c1-170422-2200"
+    
     headers = CaseInsensitiveDict()
     headers["Accept"] = "*/*"
     headers["Accept-Encoding"] = "gzip, deflate, br"
@@ -53,7 +53,7 @@ def block(_id,seatIds):
     Time=input("enter time 1030: ")
     data = '{"data":{"seatIds":[41],"scheduleId":"c1-030322-1030"}}' .'''
 def getd(_name,_OName):
-
+  
 
 
 
@@ -78,16 +78,17 @@ def getd(_name,_OName):
     params = {
         'movie': _name,
     }
-
-    response = requests.get('https://kccmultiplex.lk/buy-tickets/', headers=headers, params=params)
-    dic=response.text.split('__NEXT_DATA__" type="application/json">')[1].split('</script>')[0]
-    dic=json. loads(dic)
-    dic=dic["props"]["pageProps"][ "schedulesStrObjs"]
-    for movie in dic:
-        movie=json.loads(movie)
-        if movie["movie"]["name"]==_OName:
+    while 1:
+      response = requests.get('https://kccmultiplex.lk/buy-tickets/', headers=headers, params=params)
+      dic=response.text.split('__NEXT_DATA__" type="application/json">')[1].split('</script>')[0]
+      dic=json. loads(dic)
+      dic=dic["props"]["pageProps"][ "schedulesStrObjs"]
+      for movie in dic:
+             movie=json.loads(movie)
+             if movie["movie"]["name"]==_OName:
                     return movie["id"] 
-
+      print("not found")
+      
 seatIds =os.getenv('SEATID').split(',')#
 sName=os.getenv('SNAME')
 dName=os.getenv('DNAME')
