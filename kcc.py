@@ -85,7 +85,7 @@ def getd(_name,_OName):
       dic=dic["props"]["pageProps"][ "schedulesStrObjs"]
       for movie in dic:
              movie=json.loads(movie)
-             if movie["movie"]["name"]==_OName:
+             if (movie["movie"]["name"]==_OName) and (movie["cinema"]["id"]=="c2"):
                     return movie["id"] 
       print("not found")
       
