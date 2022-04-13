@@ -23,11 +23,13 @@ def block(_id,seatIds):
     headers["sec-ch-ua-mobile"] = "?0"
     while 1:
         for seat in seatIds:
+          try:
             data =  '{"data":{"seatIds":['+seat+'],"scheduleId":"'+_id+'"}}'
             resp = requests.post(url, headers=headers, data=data)
             data1=resp.json()
             print(data1['result']['type'])
-
+          except Exception as e:
+            print('error')
 
     '''data1 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1000"}}'
     data2 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1030"}}'
@@ -79,6 +81,7 @@ def getd(_name,_OName):
         'movie': _name,
     }
     while 1:
+     try:
       response = requests.get('https://kccmultiplex.lk/buy-tickets/', headers=headers, params=params)
       dic=response.text.split('__NEXT_DATA__" type="application/json">')[1].split('</script>')[0]
       dic=json. loads(dic)
@@ -88,7 +91,8 @@ def getd(_name,_OName):
              if (movie["movie"]["name"]==_OName) and (movie["cinema"]["id"]=="c2"):
                     return movie["id"] 
       print("not found")
-      
+     except Exception as e:
+            print('error')
 seatIds =os.getenv('SEATID').split(',')#
 sName=os.getenv('SNAME')
 dName=os.getenv('DNAME')
