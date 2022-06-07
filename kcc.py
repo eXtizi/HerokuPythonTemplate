@@ -29,7 +29,7 @@ def block(_id,seatIds):
             data1=resp.json()
             print(data1['result']['type'])
           except Exception as e:
-            print('error.booked ig')
+            print('error (not booked one) ')
 
     '''data1 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1000"}}'
     data2 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1030"}}'
