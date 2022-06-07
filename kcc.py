@@ -3,7 +3,9 @@ from requests.structures import CaseInsensitiveDict
 import time
 import json
 import os
-def block(_id,seatIds):
+letterDic= {'A':0, 'B':1, 'C':2, 'D':3,'E':4,'F':5,'G':6,'H':7,'I':8,'J':9,'a':0, 'b':1, 'c':2, 'd':3,'e':4,'f':5,'g':6,'h':7,'i':8,'j':9}
+row={'c1':15 ,'c2':10,'c3':15}
+def block(_id,seatIds,thetr):
     url = "https://us-central1-kandy-city-centre.cloudfunctions.net/temporaryBookSeats"
     
     headers = CaseInsensitiveDict()
@@ -24,6 +26,7 @@ def block(_id,seatIds):
     while 1:
         for seat in seatIds:
           try:
+            seat=str(letterDic[seat[0]]*row[thetr]+int(seat[1:]))
             data =  '{"data":{"seatIds":['+seat+'],"scheduleId":"'+_id+'"}}'
             resp = requests.post(url, headers=headers, data=data)
             data1=resp.json()
@@ -99,4 +102,4 @@ dName=os.getenv('DNAME')
 thetr=os.getenv('THETER')
 _id=getd(dName,sName,thetr)
 print(_id)
-block(_id,seatIds)
+block(_id,seatIds,thetr)
