@@ -54,7 +54,7 @@ def block(_id,seatIds):
     date=input("enter date 030322: ")
     Time=input("enter time 1030: ")
     data = '{"data":{"seatIds":[41],"scheduleId":"c1-030322-1030"}}' .'''
-def getd(_name,_OName):
+def getd(_name,_OName,thetr):
   
 
 
@@ -88,7 +88,7 @@ def getd(_name,_OName):
       dic=dic["props"]["pageProps"][ "schedulesStrObjs"]
       for movie in dic:
              movie=json.loads(movie)
-             if (movie["movie"]["name"]==_OName) and (movie["cinema"]["id"]=="c2"):
+             if (movie["movie"]["name"]==_OName) and (movie["cinema"]["id"]==thetr):
                     return movie["id"] 
       print("not found")
      except Exception as e:
@@ -96,6 +96,7 @@ def getd(_name,_OName):
 seatIds =os.getenv('SEATID').split(',')#
 sName=os.getenv('SNAME')
 dName=os.getenv('DNAME')
-_id=getd(dName,sName)
+thetr=os.getenv('THETER')
+_id=getd(dName,sName,thetr)
 print(_id)
 block(_id,seatIds)
