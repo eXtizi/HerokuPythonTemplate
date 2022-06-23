@@ -26,13 +26,13 @@ def block(_id,seatIds,thetr):
     while 1:
         for seat in seatIds:
           try:
-            seat=str(letterDic[seat[0]]*row[thetr]+int(seat[1:]))
-            data =  '{"data":{"seatIds":['+seat+'],"scheduleId":"'+_id+'"}}'
+            seat1=str(letterDic[seat[0]]*row[thetr]+int(seat[1:]))
+            data =  '{"data":{"seatIds":['+seat1+'],"scheduleId":"'+_id+'"}}'
             resp = requests.post(url, headers=headers, data=data)
             data1=resp.json()
-            print(data1['result']['type'])
+            print(data1['result']['type']+seat)
           except Exception as e:
-            print('error (not booked one) ')
+            print('error (not booked one) '+e)
 
     '''data1 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1000"}}'
     data2 = '{"data":{"seatIds":[71, 69, 68, 70, 67, 66, 65, 53],"scheduleId":"c1-140422-1030"}}'
