@@ -97,9 +97,9 @@ def getd(_name,_OName,thetr):
      except Exception as e:
             print('error')
 seatIds =os.getenv('SEATID').split(',')#
-sName=os.getenv('SNAME')
-dName=os.getenv('DNAME')
-thetr=os.getenv('THETER')
+sName=os.getenv('SNAME').strip()
+dName=os.getenv('DNAME').strip()
+thetr=os.getenv('THETER').strip()
 _id=getd(dName,sName,thetr)
 print(_id)
 block(_id,seatIds,thetr)
