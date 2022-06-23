@@ -27,7 +27,8 @@ def block(_id,seatIds,thetr):
         for seat in seatIds:
           try:
             seat1=str(letterDic[seat[0]]*row[thetr]+int(seat[1:]))
-            data =  '{"data":{"seatIds":['+seat1+'],"scheduleId":"'+_id+'"}}'
+			captcha =requests.post('https://apifiverr.herokuapp.com/kcc.php').text
+            data =  '{"data":{"seatIds":['+seat1+'],"scheduleId":"'+_id+'","recaptchaToken":"'+_captcha+'"}}'
             resp = requests.post(url, headers=headers, data=data)
             data1=resp.json()
             print(data1['result']['type']+seat)
