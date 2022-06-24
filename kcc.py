@@ -31,7 +31,7 @@ def block(_id,seatIds,thetr):
             data =  '{"data":{"seatIds":['+seat1+'],"scheduleId":"'+_id+'","recaptchaToken":"'+_captcha+'"}}'
             resp = requests.post(url, headers=headers, data=data)
             data1=resp.json()
-            print(data1['result']['type']+seat)
+            print(data1)
           except Exception as e:
             print(data1)
     
