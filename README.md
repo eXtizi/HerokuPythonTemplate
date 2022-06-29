@@ -1,2 +1,1 @@
-# KCCTemp
-KCC Movie theater tempory block seats
+#  Heroku Python Template
